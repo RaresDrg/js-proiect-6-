@@ -1,11 +1,11 @@
 {
-  "name": "parcel-project-template",
+  "name": "js-proiect-6-bun",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://goitacademy.github.io/parcel-project-template",
+  "homepage": "https://RaresDrg.github.io/js-proiect-6-bun",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /parcel-project-template/"
+    "build": "parcel build src/*.html --public-url /js-proiect-6-bun/"
   },
   "repository": {
     "type": "git",

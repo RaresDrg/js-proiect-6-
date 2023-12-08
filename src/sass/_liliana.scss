@@ -1,0 +1,47 @@
+.modal-window {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 80px 20px 136px 20px;
+  height: 100vh;
+  width: 100%;
+  // position: fixed;    // astea comentate momentan, ca sa nu ii incurge pe ceilalti //
+  // top: 0;
+  // left: 0;
+  overflow-y: auto;
+}
+
+.modal-content {
+  background: #fff;
+  height: 930px; // pentru simulare, dupa ce treci elementele, o sa fie degeaba //
+  overflow-y: auto;
+  padding: 40px 20px;
+}
+
+// de completat codul pentru mobile //
+
+/* TABLET */
+@media screen and (min-width: 768px) {
+  .modal-window {
+    padding: 250px 32px 244px 32px;
+  }
+
+  .modal-content {
+    height: 552px; // pentru simulare, dupa ce treci elementele, o sa fie degeaba //
+    padding: 40px 72px 64px 36px;
+  }
+}
+
+// de completat codul pentru tablet //
+
+/* DESKTOP VERSION*/
+@media screen and (min-width: 1280px) {
+  .modal-window {
+    padding: 250px 237px 238px 237px;
+  }
+
+  .modal-content {
+    height: 558px; // pentru simulare, dupa ce treci elementele, o sa fie degeaba //
+    padding: 40px 12px;
+  }
+}
+
+// de completat codul pentru desktop //
