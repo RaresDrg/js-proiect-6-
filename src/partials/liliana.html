@@ -1,13 +1,7 @@
 <div class="modal-window">
   <div class="modal-content">
-    
-    <!-- Iconita: close-btn -->
-    <svg width="30px" height="30px">
-      <use href="./images/icons/icons.svg#icon-close"></use>
-    </svg>
-
-    <!-- Poza film, pentru ecrane cu marimi diferite -->
-    <picture>
+    <div class="film-image">
+      <picture>
       <source
         srcset="./images/liliana/liliana-desktop.jpg"
         media="(min-width: 1280px)"
@@ -20,7 +14,53 @@
         srcset="./images/liliana/liliana-mobile.jpg"
         media="(min-width: 320px) and (max-width: 767px)"
       />
-      <img src="./images/liliana/liliana-mobile.jpg" alt="" />
+      <img class="image" src="./images/liliana/liliana-mobile.jpg" alt="" />
     </picture>
+    </div>
+    <div class="film-information">
+      <div>
+        <h2 class="film-title">A FISTFUL OF LEAD</h2>
+        <ul>
+          <li class="film-item">
+            <p class="film-details">Vote / Votes</p>
+            <p class="film-info-uper">
+              <span class="film-rating-orange">4,5</span>
+              <span class="film-rating-divider"> / </span>
+              <span>1002</span>
+            </p>
+          </li>
+          <li class="film-item">
+            <p class="film-details">Popularity</p>
+            <p class="film-info-uper">100.2</p>
+          </li>
+          <li class="film-item">
+            <p class="film-details">Original Title</p>
+            <p class="film-info-uper">A FISTFUL OF LEAD</p>
+          </li>
+          <li class="film-item">
+            <p class="film-details">Genre</p>
+            <p class="film-info-uper">
+              Western
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="film-about-title">About</h3>
+        <p class="film-about-text">Four of the West s most infamous outlaws assemble to steal a huge stash of gold from the most corrupt settlement of the gold rush towns. But not all goes to plan one is killed and the other three escapes with bags of gold hide out in the abandoned gold mine where they happen across another gang of three who themselves were planning to hit the very same bank! As tensions rise, things go from bad to worse as they realise the bags of gold are filled with lead... they ve been double crossed but by who and how?</p>
+      </div>
+      <div class="film-button-wrapper">
+        <button type="button" class="film-button btn-watch">Add to watched</button>
+        </button>
+        <button type="button" class="film-button btn-queue">
+          Add to queue
+        </button>
+      </div>
+      <button type="button" class="close-button" data-action="close-modal">
+        <svg width="30px" height="30px">
+          <use href="./images/icons/icons.svg#icon-close"></use>
+        </svg>
+      </button>
+    </div>
   </div>
 </div>

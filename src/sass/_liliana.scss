@@ -3,45 +3,200 @@
   padding: 80px 20px 136px 20px;
   height: 100vh;
   width: 100%;
-  // position: fixed;    // astea comentate momentan, ca sa nu ii incurge pe ceilalti //
-  // top: 0;
-  // left: 0;
+   position: fixed;    
+  top: 0;
+  left: 0;
   overflow-y: auto;
 }
-
 .modal-content {
   background: #fff;
-  height: 930px; // pentru simulare, dupa ce treci elementele, o sa fie degeaba //
   overflow-y: auto;
   padding: 40px 20px;
 }
-
 // de completat codul pentru mobile //
-
 /* TABLET */
 @media screen and (min-width: 768px) {
   .modal-window {
     padding: 250px 32px 244px 32px;
   }
-
   .modal-content {
     height: 552px; // pentru simulare, dupa ce treci elementele, o sa fie degeaba //
     padding: 40px 72px 64px 36px;
   }
+  .film-about-text{
+    width: 264px;
+    height: 219.66px;
+    top: 460.34px;
+    left: 400px;
+  }
+  
 }
-
 // de completat codul pentru tablet //
-
 /* DESKTOP VERSION*/
 @media screen and (min-width: 1280px) {
   .modal-window {
     padding: 250px 237px 238px 237px;
   }
-
   .modal-content {
-    height: 558px; // pentru simulare, dupa ce treci elementele, o sa fie degeaba //
     padding: 40px 12px;
+  }
+  .film-about-text{
+    width: 391px;
+    height: 160px;
+    top: 473px;
+    left: 640px;
+  }
+}
+// de completat codul pentru desktop //
+.modal-content {
+  overflow-x: auto;
+  position: relative;
+  margin: auto;
+  max-height: 100vh;
+  width: 280px;
+  padding: 48px 20px 41px 20px;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    margin: auto;
+    width: 618px;
+    height: 562px;
+    padding: 42px 29px 40px 28px;
+  }
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    width: 882px;
+    height: 568px;
+    padding: 50px 30px 40px 30px;
+  }
+}
+.image {
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  max-width: 240px;
+  height: 356px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  @media screen and (min-width: 768px){
+    max-width: 264px;
+    height: 373.55px;
+  }
+  @media screen and (min-width:1280px) {
+    max-width: 396px;
+    height: 477.8px;
+  }
+}
+.film-image {
+  @media screen and (min-width: 768px) {
+    margin-right: 30px;
+  }
+}
+.film-information {
+  text-align: start;
+}
+.film-title {
+  font-size: 20px;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  @media screen and (min-width: 1280px) {
+    font-size: 30px;
+    line-height: 1.17;
+  }
+}
+.film-item {
+  display: flex;
+  margin-bottom: 10px;
+}
+.film-details {
+  color: #8C8C8C;
+  min-width: 108px;
+  width: 67px;
+  height: 16px;
+  top: 341px;
+  left: 640px;
+}
+.film-info-uper {
+  text-transform: uppercase;
+  line-height: 1.17;
+  padding-left: 25px;
+}
+.film-rating-orange {
+  padding-left: 10px;
+  padding-right: 10px;
+  color:white;
+  background-color: #B92F2C;
+  border-radius: 5px;
+}
+.film-rating-divider {
+  margin-right: 3px;
+}
+.film-about-title {
+  text-transform: uppercase;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: Roboto;
+  width: 65px;
+  height: 16px;
+  top: 449px;
+  left: 640px;
+}
+.film-about-text {
+  line-height: 1.67;
+  margin-bottom: 21px;
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+}
+.film-button-wrapper {
+  display: flex;
+}
+
+.film-button {
+  width: 125px;
+  height: 42px;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 25px;
+  background-color:white;
+  cursor: pointer;
+  color: #B92F2C;
+  border: 1px solid black;
+  &:hover,
+  &:focus {
+    color: white;
+    border: 1px solid #B92F2C;
+    background-color: #B92F2C;
+  }
+  @media screen and (min-width:768px) {
+    width: 137px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 165px;
   }
 }
 
-// de completat codul pentru desktop //
+.film-button:first-child {
+  margin-right: 15px;
+}
+.close-button {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  background-position: center;
+  background-size: 60%;
+}
