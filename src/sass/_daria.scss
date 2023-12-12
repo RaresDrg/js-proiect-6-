@@ -1,36 +1,122 @@
-// codul pentru mobile //
+.header {
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  transition: 0.6s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 250ms;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-button[type='submit'] svg {
-  width: 14px;
-  height: 14px;
+  &-wrapper {
+    padding: 2.31rem 1.25rem 2.9375rem;
+    width: 100%;
+    transition: 0.6s;
+    background-image: url(src/images/backgrounds/header-bg-m-1x-red.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: url(src/images/backgrounds/header-bg-m-2x-red.jpg);
+    }
+
+
+    @media screen and (min-width: 768px) {
+      padding: 2.5rem 2.1rem 2.81rem;
+
+      background-image: url(src/images/backgrounds/header-bg-t-1x-red.jpg);
+
+      @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+        background-image: url(src/images/backgrounds/header-bg-t-2x-red.jpg);
+      }
+    }
+
+    @media screen and (min-width: 1280px) {
+      max-width: 1280px;
+      background-image: url(src/images/backgrounds/header-bg-d-1x-red.jpg);
+
+      @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+        background-image: url(src/images/backgrounds/header-bg-d-2x-red.jpg);
+      }
+
+    }
+    &__library {
+      background-image: url(src/images/backgrounds/header-bg-m-1x-orange.jpg);
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      padding: 2.31rem 1.25rem 2.9375rem;
+
+      @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+        background-image: url(src/images/backgrounds/header-bg-m-2x-orange.jpg);
+      }
+
+
+      @media screen and (min-width: 768px) {
+        padding: 2.5rem 2.1rem 2.81rem;
+
+        background-image: url(src/images/backgrounds/header-bg-t-1x-orange.jpg);
+
+        @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+          background-image: url(src/images/backgrounds/header-bg-t-2x-orange.jpg);
+        }
+      }
+
+      @media screen and (min-width: 1280px) {
+        background-image: url(src/images/backgrounds/header-bg-d-1x-orange.jpg);
+
+        @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+          background-image: url(src/images/backgrounds/header-bg-d-2x-orange.jpg);
+        }
+
+      }
+    }
+
+  }
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    min-width: 100%;
+    height: 100%;
+    transition: 0.6s;
+    padding-bottom: 54px;
+    &--padding {
+      padding: 0;
+      @media screen and (min-width: 360px) {
+        padding-bottom: 54px;
+      }
+    }
+  }
+  &__box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-link {
+      display: none;
+      @media screen and (min-width: 768px) {
+        text-decoration: none;
+        font-size: 1.875rem;
+        line-height: 1.16;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        padding-left: 10px;
+        color: $background-color;
+      }
+    }
+  }
 }
 
-.logo .logo-icon {
-  width: 32px;
-  height: 32px;
-}
-
-/* TABLET */
-@media screen and (min-width: 768px) {
-  button[type='submit'] svg {
-    width: 16px;
-    height: 16px;
+.login__button {
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  margin-left:auto;
+  font-size: 16px;
+  transition: color 250ms ease;
+  &:hover{
+    color: orange;
   }
-
-  .logo .logo-icon {
-    width: 40px;
-    height: 40px;
-  }
-
-  // de completat codul pentru tableta //
-}
-
-/* DESKTOP VERSION*/
-@media screen and (min-width: 1280px) {
-  .logo .logo-icon {
-    width: 59px;
-    height: 59px;
-  }
-
-  // de completat codul pentru desktop //
 }
