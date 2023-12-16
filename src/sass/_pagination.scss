@@ -63,7 +63,7 @@ div.tui-pagination .tui-last {
 }
 
 div.tui-pagination .tui-page-btn {
-  color: #333;
+  color: #000000;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -103,7 +103,7 @@ div.tui-pagination strong {
 }
 
 div.tui-pagination .tui-next-is-ellip,
-div.tui-pagination .tui-next-is-ellip {
+div.tui-pagination .tui-prev-is-ellip {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -111,4 +111,12 @@ div.tui-pagination .tui-next-is-ellip {
 
 div.tui-pagination .tui-page-btn.tui-is-disabled {
   display: none;
+}
+
+div.tui-pagination .tui-first-child.tui-is-selected {
+  border: none;
+}
+
+div.tui-pagination .tui-is-selected:hover {
+  background-color: #b92f2c;
 }
