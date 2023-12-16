@@ -10,12 +10,12 @@ const loadingSpinner = document.querySelector('.loader');
 window.addEventListener('DOMContentLoaded', fillInitialMoviesList);
 
 function fillInitialMoviesList() {
-  clearList();
+  clearMovieList();
   loadingSpinner.classList.remove('hidden');
   loadInitialMoviesFromDB();
 }
 
-function clearList() {
+function clearMovieList() {
   moviesList.innerHTML = '';
 }
 
@@ -35,7 +35,7 @@ async function loadInitialMoviesFromDB() {
 
     printMoviesList(markup);
 
-    if (data.results.length > 12) {
+    if (data.total_results > 12) {
       showPagination(data.total_results);
     }
   } catch (error) {
