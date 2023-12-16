@@ -54,7 +54,7 @@ function printMoviesList(markup) {
 }
 
 function showPagination(totalItems) {
-  myPagination = setTuiPagination(totalItems);
+  const myPagination = setTuiPagination(totalItems);
 }
 
 export default fillInitialMoviesList;
