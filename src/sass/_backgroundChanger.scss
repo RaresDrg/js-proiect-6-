@@ -1,216 +1,115 @@
 .global-header {
-  height: 460px; // doar pentru simulare, o sa sterg //
+  height: fit-content;
   border-radius: 10px;
-}
-
-.red-bg {
-  background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.4) 65.37%
-    ),
-    url('../images/backgrounds/header-bg-m-1x-red.jpg'), no-repeat;
+  background-repeat: no-repeat;
   background-size: cover;
+  animation: backgroundChanger 20s ease-in-out infinite;
 }
 
-.orange-bg {
-  background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.4) 65.37%
-    ),
-    url('../images/backgrounds/header-bg-m-1x-orange.jpg'), no-repeat;
-  background-size: cover;
+@keyframes backgroundChanger {
+  0%,
+  100% {
+    background-image: url('../images/backgrounds/header-bg-m-1x-red.jpg');
+  }
+  33% {
+    background-image: url('../images/backgrounds/header-bg-m-1x-yellow.jpg');
+  }
+  66% {
+    background-image: url('../images/backgrounds/header-bg-m-1x-orange.jpg');
+  }
 }
 
-.yellow-bg {
-  background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.4) 65.37%
-    ),
-    url('../images/backgrounds/header-bg-m-1x-yellow.jpg'), no-repeat;
-  background-size: cover;
-}
-
-// Varianta retina (2x densitatea la pixeli, pentru ecranele Apple //
 @media (min-device-pixel-ratio: 2),
   (-webkit-min-device-pixel-ratio: 2),
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
-  .red-bg {
-    background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0.4) 65.37%
-      ),
-      url('../images/backgrounds/header-bg-m-2x-red.jpg'), no-repeat;
-    background-size: cover;
-  }
-
-  .orange-bg {
-    background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0.4) 65.37%
-      ),
-      url('../images/backgrounds/header-bg-m-2x-orange.jpg'), no-repeat;
-    background-size: cover;
-  }
-
-  .yellow-bg {
-    background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0.4) 65.37%
-      ),
-      url('../images/backgrounds/header-bg-m-2x-yellow.jpg'), no-repeat;
-    background-size: cover;
+  @keyframes backgroundChanger {
+    0%,
+    100% {
+      background-image: url('../images/backgrounds/header-bg-m-2x-red.jpg');
+    }
+    33% {
+      background-image: url('../images/backgrounds/header-bg-m-2x-yellow.jpg');
+    }
+    66% {
+      background-image: url('../images/backgrounds/header-bg-m-2x-orange.jpg');
+    }
   }
 }
 
-/* TABLET */
+// /* TABLET */
 @media screen and (min-width: 768px) {
   .global-header {
-    height: 222px; // doar pentru simulare, o sa sterg //
+    height: 222px;
     border-radius: 15px;
   }
 
-  .red-bg {
-    background: linear-gradient(
-        274deg,
-        rgba(0, 0, 0, 0.49) -2.09%,
-        rgba(0, 0, 0, 0) 99.83%
-      ),
-      url('../images/backgrounds/header-bg-t-1x-red.jpg'), no-repeat;
-    background-size: cover;
+  @keyframes backgroundChanger {
+    0%,
+    100% {
+      background-image: url('../images/backgrounds/header-bg-t-1x-red.jpg');
+    }
+    33% {
+      background-image: url('../images/backgrounds/header-bg-t-1x-yellow.jpg');
+    }
+    66% {
+      background-image: url('../images/backgrounds/header-bg-t-1x-orange.jpg');
+    }
   }
 
-  .orange-bg {
-    background: linear-gradient(
-        274deg,
-        rgba(0, 0, 0, 0.49) -2.09%,
-        rgba(0, 0, 0, 0) 99.83%
-      ),
-      url('../images/backgrounds/header-bg-t-1x-orange.jpg'), no-repeat;
-    background-size: cover;
-  }
-
-  .yellow-bg {
-    background: linear-gradient(
-        274deg,
-        rgba(0, 0, 0, 0.49) -2.09%,
-        rgba(0, 0, 0, 0) 99.83%
-      ),
-      url('../images/backgrounds/header-bg-t-1x-yellow.jpg'), no-repeat;
-    background-size: cover;
-  }
-
-  // Varianta retina (2x densitatea la pixeli, pentru ecranele Apple //
   @media (min-device-pixel-ratio: 2),
     (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    .red-bg {
-      background: linear-gradient(
-          274deg,
-          rgba(0, 0, 0, 0.49) -2.09%,
-          rgba(0, 0, 0, 0) 99.83%
-        ),
-        url('../images/backgrounds/header-bg-t-2x-red.jpg'), no-repeat;
-      background-size: cover;
-    }
-
-    .orange-bg {
-      background: linear-gradient(
-          274deg,
-          rgba(0, 0, 0, 0.49) -2.09%,
-          rgba(0, 0, 0, 0) 99.83%
-        ),
-        url('../images/backgrounds/header-bg-t-2x-orange.jpg'), no-repeat;
-      background-size: cover;
-    }
-
-    .yellow-bg {
-      background: linear-gradient(
-          274deg,
-          rgba(0, 0, 0, 0.49) -2.09%,
-          rgba(0, 0, 0, 0) 99.83%
-        ),
-        url('../images/backgrounds/header-bg-t-2x-yellow.jpg'), no-repeat;
-      background-size: cover;
+    @keyframes backgroundChanger {
+      0%,
+      100% {
+        background-image: url('../images/backgrounds/header-bg-t-2x-red.jpg');
+      }
+      33% {
+        background-image: url('../images/backgrounds/header-bg-t-2x-yellow.jpg');
+      }
+      66% {
+        background-image: url('../images/backgrounds/header-bg-t-2x-orange.jpg');
+      }
     }
   }
 }
 
-/* DESKTOP VERSION*/
+// /* DESKTOP VERSION*/
 @media screen and (min-width: 1280px) {
   .global-header {
-    height: 316px; // doar pentru simulare, o sa sterg //
+    height: 316px;
   }
 
-  .red-bg {
-    background: linear-gradient(
-        274deg,
-        rgba(0, 0, 0, 0.49) -2.09%,
-        rgba(0, 0, 0, 0) 99.83%
-      ),
-      url('../images/backgrounds/header-bg-d-1x-red.jpg'), no-repeat;
-    background-size: cover;
-  }
-
-  .orange-bg {
-    background: linear-gradient(
-        274deg,
-        rgba(0, 0, 0, 0.49) -2.09%,
-        rgba(0, 0, 0, 0) 99.83%
-      ),
-      url('../images/backgrounds/header-bg-d-1x-orange.jpg'), no-repeat;
-    background-size: cover;
-  }
-
-  .yellow-bg {
-    background: linear-gradient(
-        274deg,
-        rgba(0, 0, 0, 0.49) -2.09%,
-        rgba(0, 0, 0, 0) 99.83%
-      ),
-      url('../images/backgrounds/header-bg-d-1x-yellow.jpg'), no-repeat;
-    background-size: cover;
+  @keyframes backgroundChanger {
+    0%,
+    100% {
+      background-image: url('../images/backgrounds/header-bg-d-1x-red.jpg');
+    }
+    33% {
+      background-image: url('../images/backgrounds/header-bg-d-1x-yellow.jpg');
+    }
+    66% {
+      background-image: url('../images/backgrounds/header-bg-d-1x-orange.jpg');
+    }
   }
 
   @media (min-device-pixel-ratio: 2),
     (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    .red-bg {
-      background: linear-gradient(
-          274deg,
-          rgba(0, 0, 0, 0.49) -2.09%,
-          rgba(0, 0, 0, 0) 99.83%
-        ),
-        url('../images/backgrounds/header-bg-d-2x-red.jpg'), no-repeat;
-      background-size: cover;
-    }
-
-    .orange-bg {
-      background: linear-gradient(
-          274deg,
-          rgba(0, 0, 0, 0.49) -2.09%,
-          rgba(0, 0, 0, 0) 99.83%
-        ),
-        url('../images/backgrounds/header-bg-d-2x-orange.jpg'), no-repeat;
-      background-size: cover;
-    }
-
-    .yellow-bg {
-      background: linear-gradient(
-          274deg,
-          rgba(0, 0, 0, 0.49) -2.09%,
-          rgba(0, 0, 0, 0) 99.83%
-        ),
-        url('../images/backgrounds/header-bg-d-2x-yellow.jpg'), no-repeat;
-      background-size: cover;
+    @keyframes backgroundChanger {
+      0%,
+      100% {
+        background-image: url('../images/backgrounds/header-bg-d-2x-red.jpg');
+      }
+      33% {
+        background-image: url('../images/backgrounds/header-bg-d-2x-yellow.jpg');
+      }
+      66% {
+        background-image: url('../images/backgrounds/header-bg-d-2x-orange.jpg');
+      }
     }
   }
 }

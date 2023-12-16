@@ -1,18 +1,16 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
-// GENERAL SETTINGS //
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: roboto, Arial, Helvetica, sans-serif;
+  font-weight: 500;
   // line-height: 0;
 }
 
 body {
-  font-family: roboto, Arial, Helvetica, sans-serif;
-  font-weight: 500;
   background-color: #fff;
 }
 
@@ -46,6 +44,10 @@ img {
   max-height: 100%;
 }
 
+button {
+  cursor: pointer;
+}
+
 header {
   padding: 20px 20px 0 20px;
 }
@@ -60,12 +62,11 @@ footer {
 
 .container {
   min-width: 280px;
-  // max-width: 1000px;
   margin: 0 auto;
 }
 
 header .container {
-  padding: 14px 14px 20px 14px;
+  padding: 14px 14px 24px 14px;
 }
 
 /* TABLET */
@@ -83,7 +84,7 @@ header .container {
   }
 
   header .container {
-    padding: 16px;
+    padding: 16px 32px 16px 16px;
   }
 }
 
