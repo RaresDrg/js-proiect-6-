@@ -8,6 +8,8 @@
   cursor: pointer;
   border: 1px dotted #b92f2c;
   transition: transform ease 0.5s, box-shadow ease 0.5s;
+  border-radius: 6px;
+  overflow: hidden;
 }
 
 .movie-card:hover {
@@ -20,7 +22,6 @@
   width: 100%;
   height: auto;
   object-fit: cover;
-  border-radius: 5px;
 }
 
 .movie-card {
