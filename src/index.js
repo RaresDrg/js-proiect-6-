@@ -1,6 +1,7 @@
 import './js/moviesList/moviesListOnSearch/moviesListOnSearch.js';
 
 import './js/headerButtons/myLibraryTab/myLibraryBtn.js';
+
 import './js/headerButtons/myLibraryTab/watchedTab/watchedTab.js';
 import './js/headerButtons/myLibraryTab/queueTab/queueTab.js';
 
