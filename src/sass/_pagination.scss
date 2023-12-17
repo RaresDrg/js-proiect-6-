@@ -11,6 +11,10 @@ div.tui-pagination {
   gap: 1px;
 }
 
+div.tui-pagination.isHidden {
+  display: none;
+}
+
 div.tui-pagination .tui-page-btn:not(.tui-is-selected):hover {
   background-color: #b7b4b4;
   scale: 1.025;

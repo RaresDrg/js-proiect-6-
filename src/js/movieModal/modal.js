@@ -1,15 +1,16 @@
 import createModalMarkup from './modalMarkup.js';
 import TmdbApi from '../API/TMDB_API.js';
+import StackedData from './StackedData.js';
 import Notiflix from 'notiflix';
 
 const API = new TmdbApi();
+const stackedData = new StackedData();
 
 const moviesList = document.querySelector('#movies-list');
 const myModal = document.querySelector('.modal-window');
 const closeBtn = document.querySelector('.close-button');
 
 moviesList.addEventListener('click', ({ target }) => {
-  debugger;
   if (target.nodeName === 'UL') {
     return;
   }
@@ -33,14 +34,11 @@ async function loadMovieInfo(id) {
 
     createModalMarkup(data);
     openModal();
+
     stackData(data);
   } catch {
-    onError();
+    Notiflix.Notify.failure('The resource you requested could not be found.');
   }
-}
-
-function onError() {
-  Notiflix.Notify.failure('The resource you requested could not be found.');
 }
 
 function openModal() {
@@ -73,7 +71,7 @@ function closeModal() {
 }
 
 function stackData(data) {
-  const dataStacked = {
+  stackedData.dataStacked = {
     id: data.id,
     poster_path: data.poster_path,
     title: data.title,
@@ -86,8 +84,6 @@ function stackData(data) {
     original_title: data.original_title,
     overview: data.overview,
   };
-
-  return dataStacked;
 }
 
-export default stackData;
+export default stackedData;

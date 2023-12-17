@@ -16,7 +16,9 @@
         </button>
       </form>
       <div class="buttons-left">
-        <button type="button" class="home-btn" disabled>Home</button>
+        <a href="index.html">
+          <button type="button" class="home-btn" disabled>Home</button></a
+        >
         <button type="button" class="library-btn">My Library</button>
       </div>
     </div>
@@ -30,9 +32,13 @@
       </a>
     </div>
 
-    <div class="buttons-right">
-      <button type="button" class="add-watched-btn" disabled>Watched</button>
-      <button type="button" class="add-queue-btn">queue</button>
+    <div class="buttons-right isHidden">
+      <button type="button" class="watched-tab-btn" disabled>Watched</button>
+      <button type="button" class="queue-tab-btn">queue</button>
     </div>
+
+    <p class="search-error isHidden">
+      Search result not successful. Enter the correct movie name.
+    </p>
   </div>
 </header>

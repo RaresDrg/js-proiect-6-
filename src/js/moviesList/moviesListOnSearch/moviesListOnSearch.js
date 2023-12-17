@@ -1,7 +1,7 @@
 import Notiflix from 'notiflix';
 import TmdbApi from '../../API/TMDB_API.js';
 import createMarkup from '../moviesListMarkup.js';
-import setTuiPagination from '../moviesListInitial/pagination/TuiPagination.js';
+import setTuiPaginationForSearch from './paginationOnSearch/TuiPaginationOnSearch.js';
 
 const API = new TmdbApi();
 
@@ -9,6 +9,8 @@ const searchForm = document.querySelector('.search-form');
 const searchInput = document.querySelector('.search-input');
 const moviesList = document.getElementById('movies-list');
 const loadingSpinner = document.querySelector('.loader');
+const errorEl = document.querySelector('.search-error');
+const paginationEl = document.querySelector('.tui-pagination');
 
 searchForm.addEventListener('submit', fillMoviesListOnSearch);
 
@@ -19,21 +21,25 @@ function fillMoviesListOnSearch(event) {
 
   if (inputValue.length === 0) {
     onError('Please, write a movie name');
+    errorEl.classList.add('isHidden');
     return;
   }
 
-  clear(); // curata aici
+  clear();
   loadingSpinner.classList.remove('hidden');
 
   loadMoviesOnSearch(inputValue);
 }
 
 async function loadMoviesOnSearch(searchedTerm) {
+  API.searchQuery = searchedTerm;
+
   try {
-    const data = await API.getSearchedMovie(searchedTerm);
+    const data = await API.getSearchedMovie();
 
     if (data.results.length === 0) {
       onError('Search result not successful. Enter the correct movie name');
+      errorEl.classList.remove('isHidden');
       return;
     }
 
@@ -44,7 +50,7 @@ async function loadMoviesOnSearch(searchedTerm) {
 
     printMoviesList(markup);
 
-    if (data.results.length > 12) {
+    if (data.total_results > 12) {
       showPagination(data.total_results);
     }
   } catch (error) {
@@ -55,7 +61,8 @@ async function loadMoviesOnSearch(searchedTerm) {
 function clear() {
   moviesList.innerHTML = '';
   searchForm.reset();
-  // destroy pagination //
+  errorEl.classList.add('isHidden');
+  paginationEl.classList.add('isHidden');
 }
 
 function printMoviesList(markup) {
@@ -63,12 +70,14 @@ function printMoviesList(markup) {
 }
 
 function showPagination(totalItems) {
-  const myPagination = setTuiPagination(totalItems);
+  const myPagination = setTuiPaginationForSearch(totalItems);
+  paginationEl.classList.remove('isHidden');
   // update aici //
 }
 
 function onError(error) {
   loadingSpinner.classList.add('hidden');
-  // moviesList.innerHTML = `<p class="search-error">Search result not successful. Enter the correct movie name.</p>`;
   Notiflix.Notify.failure(error);
 }
+
+export default API;

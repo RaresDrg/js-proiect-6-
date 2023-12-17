@@ -76,6 +76,10 @@
     color 350ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.search-form.isHidden {
+  display: none;
+}
+
 .search-form .search-input:hover {
   transform: scale(1.03);
 }
@@ -173,18 +177,44 @@
   cursor: not-allowed;
 }
 
-.buttons-right .add-watched-btn {
+.buttons-right .watched-tab-btn {
   padding: 10px 23px;
 }
 
-.buttons-right .add-queue-btn {
+.buttons-right .queue-tab-btn {
   padding: 10px 24px;
+}
+
+p.search-error {
+  position: absolute;
+  top: 102;
+  left: 22;
+
+  width: 208px;
+  font-size: 12px;
+  font-style: italic;
+  color: #ffffff;
+}
+
+p.search-error.isHidden {
+  display: none;
+}
+
+p.error-from-local {
+  font-size: 15px;
+  font-style: italic;
+  margin-left: 5px;
+}
+
+p.error-from-locat.isHidden {
+  display: none;
 }
 
 /* TABLET */
 @media screen and (min-width: 768px) {
   .global-header .left-navigation {
     flex-direction: row;
+    align-items: center;
   }
 
   .search-form .search-input {
@@ -207,11 +237,11 @@
     margin-top: 0;
   }
 
-  .buttons-right .add-watched-btn {
+  .buttons-right .watched-tab-btn {
     padding: 12px 23px;
   }
 
-  .buttons-right .add-queue-btn {
+  .buttons-right .queue-tab-btn {
     padding: 12px 24px;
   }
 
@@ -236,14 +266,23 @@
   .logo-text {
     font-size: 40px;
   }
+
+  p.search-error {
+    top: 63px;
+    left: 25px;
+  }
+
+  p.error-from-local {
+    font-size: 20px;
+  }
 }
 
 /* DESKTOP VERSION*/
 @media screen and (min-width: 1280px) {
   .search-form .search-input {
     padding: 13px 65px 13px 20px;
-    transition: margin-right 1500ms cubic-bezier(0.4, 0, 0.2, 1),
-      font-size 1500ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: margin-right 500ms cubic-bezier(0.4, 0, 0.2, 1),
+      font-size 500ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .search-form .search-input:hover {
@@ -279,11 +318,11 @@
     padding: 14px 24px;
   }
 
-  .buttons-right .add-watched-btn {
+  .buttons-right .watched-tab-btn {
     padding: 14px 32px;
   }
 
-  .buttons-right .add-queue-btn {
+  .buttons-right .queue-tab-btn {
     padding: 14px 24px;
   }
 
@@ -303,5 +342,15 @@
 
   .logo a {
     gap: 15px;
+  }
+
+  p.search-error {
+    top: 73px;
+    left: 40px;
+    font-size: 13px;
+  }
+
+  p.error-from-local {
+    font-size: 25px;
   }
 }

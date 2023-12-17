@@ -1,12 +1,11 @@
-import TmdbApi from '../../../API/TMDB_API.js';
 import Notiflix from 'notiflix';
 import createMarkup from '../../moviesListMarkup.js';
+import API from '../moviesListOnSearch.js';
 
 const moviesList = document.getElementById('movies-list');
 
-const API = new TmdbApi();
-
-function handleSyncPagination(targetedPageNumber) {
+function handleSyncPaginationOnSearch(targetedPageNumber) {
+  debugger;
   const coefficient = (targetedPageNumber * 12) / 20;
   const condition = calcCondition(coefficient);
 
@@ -55,7 +54,8 @@ function handleCases(condition, coefficient) {
 
 async function requestDataFromOnePage(page, condition) {
   try {
-    const data = await API.getAllMovies(page);
+    const data = await API.getSearchedMovie(page);
+
     let dataForMarkup;
 
     if (condition === 1) dataForMarkup = data.results.splice(0, 12);
@@ -72,8 +72,8 @@ async function requestDataFromOnePage(page, condition) {
 
 async function requestDataFromTwoPages(previousPage, followingPage, condition) {
   try {
-    const previousData = await API.getAllMovies(previousPage);
-    const followingData = await API.getAllMovies(followingPage);
+    const previousData = await API.getSearchedMovie(previousPage);
+    const followingData = await API.getSearchedMovie(followingPage);
 
     const allData = [...previousData.results, ...followingData.results];
     let dataForMarkup;
@@ -105,4 +105,4 @@ function onError(error) {
   // trecut eroare si in lista //
 }
 
-export default handleSyncPagination;
+export default handleSyncPaginationOnSearch;
