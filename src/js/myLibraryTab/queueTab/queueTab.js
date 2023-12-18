@@ -9,6 +9,7 @@ const moviesList = document.getElementById('movies-list');
 const paginationEl = document.querySelector('.tui-pagination');
 const errorEl = document.querySelector('.search-error');
 const loadingSpinner = document.querySelector('.loader');
+const addBtns = document.querySelector('.buttons-wrapper');
 const removeBtn = document.querySelector('.remove-btn');
 
 queueTabBtn.addEventListener('click', fillQueueMoviesList);
@@ -33,7 +34,7 @@ function loadQueueMoviesList() {
   const dataForMarkup = data.slice(0, 12);
   const markup = createMarkup(dataForMarkup);
 
-  removeBtn.textContent = 'Remove from queue';
+  setButtons();
 
   loadingSpinner.classList.add('hidden');
 
@@ -43,6 +44,12 @@ function loadQueueMoviesList() {
     const myPagination = setTuiQueuePagination(data.length);
     paginationEl.classList.remove('isHidden');
   }
+}
+
+function setButtons() {
+  addBtns.classList.add('isHidden');
+  removeBtn.classList.remove('isHidden');
+  removeBtn.textContent = 'Remove from queue';
 }
 
 function clear() {

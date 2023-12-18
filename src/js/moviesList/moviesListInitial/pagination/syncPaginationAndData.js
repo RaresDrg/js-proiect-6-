@@ -102,7 +102,6 @@ function handleSmoothScroll() {
 
 function onError(error) {
   Notiflix.Notify.failure(error);
-  // trecut eroare si in lista //
 }
 
 export default handleSyncPagination;

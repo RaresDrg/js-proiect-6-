@@ -5,7 +5,6 @@ import API from '../moviesListOnSearch.js';
 const moviesList = document.getElementById('movies-list');
 
 function handleSyncPaginationOnSearch(targetedPageNumber) {
-  debugger;
   const coefficient = (targetedPageNumber * 12) / 20;
   const condition = calcCondition(coefficient);
 
