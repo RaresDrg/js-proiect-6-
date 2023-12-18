@@ -8,7 +8,6 @@ const rightBtns = document.querySelector('.buttons-right');
 libraryBtn.addEventListener('click', onLibraryTab);
 
 function onLibraryTab() {
-  // mai devreme spinner aici //
   searchForm.classList.add('isHidden');
   rightBtns.classList.remove('isHidden');
 

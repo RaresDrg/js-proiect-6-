@@ -10,13 +10,9 @@ const loadingSpinner = document.querySelector('.loader');
 window.addEventListener('DOMContentLoaded', fillInitialMoviesList);
 
 function fillInitialMoviesList() {
-  clearMovieList();
+  moviesList.innerHTML = '';
   loadingSpinner.classList.remove('hidden');
   loadInitialMoviesFromDB();
-}
-
-function clearMovieList() {
-  moviesList.innerHTML = '';
 }
 
 async function loadInitialMoviesFromDB() {

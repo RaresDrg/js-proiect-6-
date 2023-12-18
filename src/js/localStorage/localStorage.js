@@ -1,40 +1,45 @@
-const moviesWatched = [];
-const moviesQueue = [];
-
-const saveToWatched = (key, value) => {
-  debugger;
-  try {
-    moviesWatched.push(value);
-
-    const serializedData = JSON.stringify(moviesWatched);
-    localStorage.setItem(key, serializedData);
-  } catch (err) {
-    console.error(err);
+class LocalStorage {
+  constructor() {
+    this.moviesWatched =
+      this.load('watched-list') === undefined ? [] : this.load('watched-list');
+    this.moviesQueue =
+      this.load('queue-list') === undefined ? [] : this.load('queue-list');
   }
-};
 
-const saveToQueue = (key, value) => {
-  try {
-    moviesQueue.push(value);
+  saveToWatched(key, value) {
+    try {
+      this.moviesWatched.unshift(value);
 
-    const serializedData = JSON.stringify(moviesQueue);
-    localStorage.setItem(key, serializedData);
-  } catch (err) {
-    console.error(err);
+      const serializedData = JSON.stringify(this.moviesWatched);
+      localStorage.setItem(key, serializedData);
+    } catch (err) {
+      console.error(err);
+    }
   }
-};
 
-const load = key => {
-  try {
-    const serializedData = localStorage.getItem(key);
-    return serializedData === null ? undefined : JSON.parse(serializedData);
-  } catch (error) {
-    console.error(error);
+  saveToQueue(key, value) {
+    try {
+      this.moviesQueue.unshift(value);
+
+      const serializedData = JSON.stringify(this.moviesQueue);
+      localStorage.setItem(key, serializedData);
+    } catch (err) {
+      console.error(err);
+    }
   }
-};
 
-const clear = () => {
-  localStorage.clear();
-};
+  load(key) {
+    try {
+      const serializedData = localStorage.getItem(key);
+      return serializedData === null ? undefined : JSON.parse(serializedData);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
-export { saveToWatched, saveToQueue, load, clear };
+  remove(key) {
+    localStorage.removeItem(key);
+  }
+}
+
+export default LocalStorage;

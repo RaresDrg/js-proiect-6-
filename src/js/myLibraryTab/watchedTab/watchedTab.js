@@ -1,6 +1,6 @@
 import Notiflix from 'notiflix';
-import { load } from '../../../localStorage/localStorage.js';
-import createMarkup from '../../../moviesList/moviesListMarkup.js';
+import { localStorage } from '../../movieModal/modalMarkup.js';
+import createMarkup from '../../moviesList/moviesListMarkup.js';
 import setTuiWatchedPagination from './watchedPagination.js';
 
 const queueTabBtn = document.querySelector('.queue-tab-btn');
@@ -9,12 +9,12 @@ const moviesList = document.getElementById('movies-list');
 const paginationEl = document.querySelector('.tui-pagination');
 const errorEl = document.querySelector('.search-error');
 const loadingSpinner = document.querySelector('.loader');
+const addBtns = document.querySelector('.buttons-wrapper');
+const removeBtn = document.querySelector('.remove-btn');
 
 watchedTabBtn.addEventListener('click', fillWatchedMoviesList);
 
 function fillWatchedMoviesList() {
-  debugger;
-
   watchedTabBtn.disabled = true;
   queueTabBtn.disabled = false;
 
@@ -24,7 +24,7 @@ function fillWatchedMoviesList() {
 }
 
 function loadWatchedMoviesList() {
-  const data = load('watched-list');
+  const data = localStorage.load('watched-list');
 
   if (!data) {
     onError('There is no movie saved in your watched list');
@@ -34,6 +34,8 @@ function loadWatchedMoviesList() {
   const dataForMarkup = data.slice(0, 12);
   const markup = createMarkup(dataForMarkup);
 
+  setButtons();
+
   loadingSpinner.classList.add('hidden');
 
   printMovicesList(markup);
@@ -42,10 +44,12 @@ function loadWatchedMoviesList() {
     const myPagination = setTuiWatchedPagination(data.length);
     paginationEl.classList.remove('isHidden');
   }
+}
 
-  Notiflix.Notify.success(
-    `There is ${data.length} movies saved in you watched list`
-  );
+function setButtons() {
+  addBtns.classList.add('isHidden');
+  removeBtn.classList.remove('isHidden');
+  removeBtn.textContent = 'Remove from watched';
 }
 
 function clear() {

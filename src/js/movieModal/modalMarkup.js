@@ -1,4 +1,6 @@
-import { load } from '../localStorage/localStorage.js';
+import LocalStorage from '../localStorage/localStorage.js';
+
+const localStorage = new LocalStorage();
 
 const movieImg = document.querySelector('.movie-img');
 const movieTitle = document.querySelector('.movie-title');
@@ -9,11 +11,13 @@ const movieOriginalTitle = document.querySelector('.original-title');
 const movieGenre = document.querySelector('.movie-genre');
 const movieOverview = document.querySelector('.movie-overview');
 
+const myModal = document.querySelector('.modal-content');
+
 const addWatchedBtn = document.querySelector('.add-to-watched');
 const addQueueBtn = document.querySelector('.add-to-queue');
 
 export default function createModalMarkup(data) {
-  movieImg.src = `https://image.tmdb.org/t/p/w342${data.poster_path}`;
+  movieImg.src = `${checkImageAvailability(data.poster_path)} `;
   movieTitle.innerHTML = data.title;
   movieScore.innerHTML = calcFixedValue(data.vote_average);
   movieVotes.innerHTML = data.vote_count;
@@ -22,12 +26,22 @@ export default function createModalMarkup(data) {
   movieGenre.innerHTML = getMovieGenres(data.genres);
   movieOverview.innerHTML = data.overview;
 
+  myModal.id = data.id;
+
   checkAddToWatchedBtn(data.id);
   checkAddtoQueueBtn(data.id);
 }
 
+function checkImageAvailability(posterPath) {
+  if (posterPath === null) {
+    return 'https://media.istockphoto.com/vectors/no-image-available-icon-vector-id1216251206?k=6&m=1216251206&s=612x612&w=0&h=G8kmMKxZlh7WyeYtlIHJDxP5XRGm9ZXyLprtVJKxd-o=';
+  }
+
+  return `https://image.tmdb.org/t/p/w342${posterPath}`;
+}
+
 function checkAddToWatchedBtn(id) {
-  const moviesWatched = load('watched-list');
+  const moviesWatched = localStorage.load('watched-list');
 
   if (moviesWatched) {
     if (moviesWatched.find(movie => movie.id === id)) {
@@ -40,7 +54,7 @@ function checkAddToWatchedBtn(id) {
 }
 
 function checkAddtoQueueBtn(id) {
-  const moviesQueue = load('queue-list');
+  const moviesQueue = localStorage.load('queue-list');
 
   if (moviesQueue) {
     if (moviesQueue.find(movie => movie.id === id)) {
@@ -60,3 +74,5 @@ function getMovieGenres(movieGenreIds) {
   const movieGenres = movieGenreIds.map(genre => genre.name);
   return movieGenres.join(', ');
 }
+
+export { localStorage };

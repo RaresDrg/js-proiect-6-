@@ -1,6 +1,6 @@
 import Notiflix from 'notiflix';
-import { load } from '../../../localStorage/localStorage.js';
-import createMarkup from '../../../moviesList/moviesListMarkup.js';
+import { localStorage } from '../../movieModal/modalMarkup.js';
+import createMarkup from '../../moviesList/moviesListMarkup.js';
 import setTuiQueuePagination from './queuePagination.js';
 
 const queueTabBtn = document.querySelector('.queue-tab-btn');
@@ -9,11 +9,11 @@ const moviesList = document.getElementById('movies-list');
 const paginationEl = document.querySelector('.tui-pagination');
 const errorEl = document.querySelector('.search-error');
 const loadingSpinner = document.querySelector('.loader');
+const removeBtn = document.querySelector('.remove-btn');
 
 queueTabBtn.addEventListener('click', fillQueueMoviesList);
 
 function fillQueueMoviesList() {
-  debugger;
   queueTabBtn.disabled = true;
   watchedTabBtn.disabled = false;
 
@@ -23,7 +23,7 @@ function fillQueueMoviesList() {
 }
 
 function loadQueueMoviesList() {
-  const data = load('queue-list');
+  const data = localStorage.load('queue-list');
 
   if (!data) {
     onError('There is no movie saved in your queue list');
@@ -33,6 +33,8 @@ function loadQueueMoviesList() {
   const dataForMarkup = data.slice(0, 12);
   const markup = createMarkup(dataForMarkup);
 
+  removeBtn.textContent = 'Remove from queue';
+
   loadingSpinner.classList.add('hidden');
 
   printMovicesList(markup);
@@ -41,10 +43,6 @@ function loadQueueMoviesList() {
     const myPagination = setTuiQueuePagination(data.length);
     paginationEl.classList.remove('isHidden');
   }
-
-  Notiflix.Notify.success(
-    `There is ${data.length} movies saved in you queque list`
-  );
 }
 
 function clear() {
@@ -62,3 +60,5 @@ function onError(error) {
   loadingSpinner.classList.add('hidden');
   moviesList.innerHTML = `<p class="local-error">${error}</p>`;
 }
+
+export default fillQueueMoviesList;

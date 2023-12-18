@@ -1,7 +1,7 @@
 import TuiPagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
-import { load } from '../../../localStorage/localStorage.js';
-import createMarkup from '../../../moviesList/moviesListMarkup.js';
+import { localStorage } from '../../movieModal/modalMarkup.js';
+import createMarkup from '../../moviesList/moviesListMarkup.js';
 
 const paginationEL = document.getElementById('tui-pagination-container');
 const loadingSpinner = document.querySelector('.loader');
@@ -28,7 +28,7 @@ function handleSyncPagination(page) {
   moviesList.innerHTML = '';
   loadingSpinner.classList.remove('hidden');
 
-  const data = load('queue-list');
+  const data = localStorage.load('queue-list');
 
   const firstIndex = (page - 1) * 12;
   const lastIndex = page * 12;
